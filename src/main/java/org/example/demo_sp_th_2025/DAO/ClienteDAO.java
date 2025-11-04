@@ -7,9 +7,14 @@ import java.util.Optional;
 
 public interface ClienteDAO {
     //mapear las operaciones CRUD en la base de datos para la entidad Cliente
-        void create(Cliente cliente);
-        List<Cliente> getAll();
-        Optional<Cliente> findAll();
+
+    void create(Cliente cliente);
+
+    List<Cliente> getAll();
+
+    Optional<Cliente> find(int id);
+
+    Optional<Cliente> findAll();
         void update(Cliente cliente);
         void delete(int id);
 }
