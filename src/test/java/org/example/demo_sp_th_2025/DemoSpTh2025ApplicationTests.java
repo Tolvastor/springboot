@@ -25,10 +25,10 @@ class DemoSpTh2025ApplicationTests {
 
     @Test
     void testcreate() {
-        Cliente cliente = Cliente.builder().nombre("jose")
-                .apellido1("perez")
-                .apellido2("lopez")
-                .ciudad("madrid")
+        Cliente cliente = Cliente.builder().nombre("Antonio")
+                .apellido1("Toledo")
+                .apellido2("Gomez")
+                .ciudad("malaga")
                 .categoria(1)
                 .build();
         System.out.println("antes de crear" + cliente.getId());

@@ -50,7 +50,7 @@ public class ClienteDAOImpl implements ClienteDAO {
                 (rs, rowNum) -> new Cliente(
                         rs.getInt("id"),
                         rs.getString("nombre"),
-                        rs.getString("apellido"),
+                        rs.getString("apellido1"),
                         rs.getString("apellido2"),
                         rs.getString("ciudad"),
                         rs.getInt("categoria")

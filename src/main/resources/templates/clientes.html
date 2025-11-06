@@ -5,9 +5,14 @@
     <title>cliente</title>
 </head>
 <body>
+<h3> Clientes</h3>
 <div th:each="cliente: ${ListaClientes}">
-    <span th:text="${cliente.nombre}"></span> ç
+    <span th:text="${cliente.nombre}"></span>
     <span th:text="${cliente.apellido1}"></span>
+    <span th:text="${cliente.apellido2}"></span>
+    <span th:text="${cliente.ciudad}"></span>
+    <span th:text="${cliente.categoria}"></span>
+
 </div>
 </body>
 </html>
