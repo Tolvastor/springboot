@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo th:block</title>
+</head>
+<body>
+<a th:href="@{/registrar}" th:text="'registrar'"></a>
+
+<a th:href="@{/clientes(id=${cliente.id},nombre=${cliente.nombre})}"
+   th:text="'ver cliente'+${cliente.nombre}"></a>
+
+<a th:href="@{/clientes/(id=${id},nombre=${cliente.nombre})}"
+   th:text="'editar'+${cliente.nombre}"></a>
+
+</body>
+</html>
