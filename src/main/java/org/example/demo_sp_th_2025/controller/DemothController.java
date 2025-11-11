@@ -1,10 +1,14 @@
 package org.example.demo_sp_th_2025.controller;
 
 import jakarta.servlet.http.HttpSession;
+import org.example.demo_sp_th_2025.DAO.ClienteDAO;
 import org.example.demo_sp_th_2025.modelo.Cliente;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -12,6 +16,8 @@ import java.util.List;
 public class DemothController {
 //sin service, solo actuar sobre plantillas html
 
+    @Autowired
+    private ClienteDAO clienteDAO;
     //endpoints
     @GetMapping("demoth1")
     public String demoth1(Model model){
@@ -59,4 +65,22 @@ public class DemothController {
         return "plantilla5";
     }
 
+    @GetMapping("/demoth/crear")
+    public String demothCrear(Model model){
+        Cliente cliente  = new Cliente();
+        model.addAttribute("cliente", cliente);
+        return "demoth-crear";
+    }
+
+    @PostMapping("/demoth/crear")
+    public String demothCrearSubmit(@ModelAttribute Cliente cliente){
+        clienteDAO.create(cliente);
+        return "redirect:/demoth/listar";
+    }
+
+    @GetMapping("/demoth/listar")
+    public String demothListar(Model model){
+        model.addAttribute("clientes", clienteDAO.getAll());
+        return  "demoth-listar";
+    }
 }
